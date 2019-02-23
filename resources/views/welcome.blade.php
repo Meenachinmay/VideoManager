@@ -12,15 +12,7 @@
 
         <div class="container-fluid" id="app">
 
-            <div class="row">
-
-                <div class="col-md">
-
-                    <metube-dashboard></metube-dashboard>
-
-                </div>
-
-            </div>
+            <metube-dashboard></metube-dashboard>
 
         </div>
 

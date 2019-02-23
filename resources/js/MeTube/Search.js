@@ -12,7 +12,7 @@ module.exports = function (options, callback) {
         part: 'snippet',
         key: options.apiKey,
         q: options.term,
-        maxResults: (options.items) ? options.items : 5,
+        maxResults: (options.items) ? options.items : 20,
         type: 'video',
     }
 

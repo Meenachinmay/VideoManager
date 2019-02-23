@@ -1,6 +1,6 @@
 <template>
 
-    <div class="MeTubeDashboard__wrapper">
+    <div class="MeTubeDashboard__wrapper mt-3 align-items-md-center">
 
         <video-group :videos="this.videos"></video-group>
 
@@ -21,7 +21,7 @@
 
             Search({
                 apiKey: 'AIzaSyAlb5pUjfDs-OEs0H9A6xONItYvNQbBYl8',
-                term: 'laravel tutorials'
+                term: 'laravel tutorials',
             }, response => this.videos = response)
         },
 
