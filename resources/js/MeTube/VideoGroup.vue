@@ -56,7 +56,6 @@
                 this.counter++;
                 if (this.counter == this.videos.length){
                     this.relayoutGrid()
-                    console.log(this.counter)
                 }
             },
         }

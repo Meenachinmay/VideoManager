@@ -1,8 +1,15 @@
 <template>
 
     <div class="MeTubeDashboard__wrapper mt-3 align-items-md-center">
+        <finder></finder>
 
-        <video-group :videos="this.videos"></video-group>
+        <div v-if="!loading">
+            <video-group :videos="this.videos"></video-group>
+        </div>
+        <div v-else>
+            Loading...
+        </div>
+
 
     </div>
 
@@ -12,24 +19,42 @@
 
     import Search from './Search.js'
     import VideoGroup from './VideoGroup'
+    import Finder from './Finder'
 
     export default {
 
-        components: { VideoGroup },
+        components: { VideoGroup, Finder },
 
         created() {
 
             Search({
                 apiKey: 'AIzaSyAlb5pUjfDs-OEs0H9A6xONItYvNQbBYl8',
-                term: 'laravel tutorials',
-            }, response => this.videos = response)
+                term: 'laravel',
+            }, response => this.handleSearchResult(response))
+
+            window.eventBus.$on('searchForVideosStarted', () => {
+                this.loading = true
+            })
+
+            window.eventBus.$on('searchFromYoutube', resultFromFinder => {
+                this.loading = false
+                this.videos = resultFromFinder
+            })
         },
 
         data(){
             return {
-                videos: null
+                videos: null,
+                loading: true,
             }
-        }
+        },
+
+        methods: {
+          handleSearchResult(result) {
+              this.loading = false
+              this.videos = result
+          }
+        },
     }
 
 </script>
