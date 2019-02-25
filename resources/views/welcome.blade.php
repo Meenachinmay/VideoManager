@@ -12,7 +12,8 @@
 
         <div class="container-fluid" id="app">
 
-            <metube-dashboard></metube-dashboard>
+            {{--<metube-dashboard></metube-dashboard>--}}
+            <router-view></router-view>
 
         </div>
 

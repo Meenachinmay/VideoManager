@@ -9,7 +9,13 @@
 
                 <h5 class="card-title"> {{ videoTitle }}</h5>
                 <p class="card-text"> {{ videoDescription }}</p>
-                <a href="#" class="btn btn-primary btn-sm"> Go to video </a>
+                <router-link
+
+                        :to="{ name: 'single-video', params: {id: video.id.videoId, video: video}}"
+                        class="btn btn-light btn-sm">
+                        <strong>Go to video </strong>
+
+                </router-link>
 
             </div>
 
