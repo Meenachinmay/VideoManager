@@ -1,30 +1,31 @@
 <template>
-    <div class="container">
-        <div class="VideoDetails__wrapper row" v-if="video">
+    <div class="VideoDetails__wrapper row" v-if="video">
 
-            <div class="col-sm-8">
+        <div class="col-sm-8">
 
-                <h2> {{ video.snippet.title }}</h2>
-                <br>
-                <small>Channel: {{ video.snippet.channelTitle }}</small>
+            <h2> {{ video.snippet.title }}</h2>
+            <br>
+            <small>Channel: {{ video.snippet.channelTitle }}</small>
 
-                <p>{{ video.snippet.description }}</p>
+            <p>{{ video.snippet.description }}</p>
 
-                <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive embed-responsive-16by9">
 
-                    <iframe v-bind:src="url" frameborder="0" class="embed-responsive-item"></iframe>
+                <iframe v-bind:src="url" frameborder="0" class="embed-responsive-item"></iframe>
 
-                </div>
             </div>
 
+            <CommentsManager></CommentsManager>
         </div>
+
     </div>
 
 </template>
 
 <script>
-
+    import CommentsManager from './Comments/CommnetsManager'
     export  default {
+        components: { CommentsManager },
         created() {
             if (this.$route.params.video === undefined) {
                 this.$router.push({name: 'metube-dashboard'})

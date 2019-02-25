@@ -1,9 +1,9 @@
 <template>
 
-    <div class="MeTubeDashboard__wrapper mt-3 align-items-md-center">
+    <div class="MeTubeDashboard__wrapper mt-3">
         <finder></finder>
 
-        <div v-if="!loading">
+        <div class="ml-3" v-if="!loading">
             <video-group :videos="this.videos"></video-group>
         </div>
         <div v-else>
